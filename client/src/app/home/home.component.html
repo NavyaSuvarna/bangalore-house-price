@@ -1,0 +1,41 @@
+<div *ngIf="locations">
+    <form [formGroup]="PriceDescription" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <select formControlName="Locations" class="custom-select">
+                    <option value=''>Select Locations</option>
+                    <option *ngFor="let l of locations" value={{l}}>{{l|uppercase}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select formControlName="Bathrooms" class="custom-select">
+                    <option value=''>Select Bathrooms</option>
+                    <option *ngFor="let bathroom of bathrooms" value={{bathroom}}>{{bathroom}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select formControlName="Bedrooms" class="custom-select">
+                    <option value=''>Select Bedrooms</option>
+                    <option *ngFor="let bedroom of bedrooms" value={{bedroom}}>{{bedroom}}</option>
+                </select>
+
+            </div>
+            <div class="col-md-3">
+                <input type="number" formControlName="Total_sqft" placeholder="Enter total Square feet"
+                    class="form-control">
+            </div>
+            <div class="col-md-1">
+                <button type="submit" (ngSubmit)="onSubmit()"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <div *ngIf="estimated_price" class="row mt-5 result alert alert-success alert-dismissible fade show">
+            <strong>Estimated Price : {{estimated_price}}</strong>
+        </div>
+    </div>
+
+
+
+
+</div>
